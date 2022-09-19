@@ -2,7 +2,10 @@ import PropTypes from "prop-types";
 // Redux
 import { useDispatch } from "react-redux";
 // Actions
-import { setIsLoginAction } from "../../Store/Slice/userSlice";
+import {
+  setIsLoginAction,
+  setUserNameAction,
+} from "../../Store/Slice/userSlice";
 
 const propTypes = {
   userName: PropTypes.string,
@@ -20,6 +23,7 @@ const BeforeLoginComponent = ({ userName, handleChangeUserName }) => {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       dispatch(setIsLoginAction(true));
+      dispatch(setUserNameAction(userName));
     }
   };
 
